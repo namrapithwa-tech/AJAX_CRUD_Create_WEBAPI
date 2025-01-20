@@ -1,0 +1,6 @@
+@AJAX_CRUD_Create_WEBAPI_HostAddress = http://localhost:5163
+
+GET {{AJAX_CRUD_Create_WEBAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
