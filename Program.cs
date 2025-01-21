@@ -1,22 +1,39 @@
+using AJAX_CRUD_Create_WEBAPI.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// Add services to the container
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(); // Register Swagger services
+
+// Add your UserRepository
+builder.Services.AddScoped<UserRepository>(sp =>
+    new UserRepository(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Add CORS (if needed for frontend communication)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost7033", policy =>
+    {
+        policy.WithOrigins("https://localhost:7033")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
+    app.UseSwagger();  // Add Swagger middleware
     app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowLocalhost7033"); // Enable CORS
 
 app.UseAuthorization();
 
