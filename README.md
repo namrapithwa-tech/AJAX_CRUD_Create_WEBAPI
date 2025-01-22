@@ -83,6 +83,8 @@ The API provides the following endpoints:
 - SQL Server
 - Visual Studio or any preferred IDE
 
+### Create .NET CORE WEB API Project
+
 ### Some Extension need to be install from Tools -> NuGet Package Manager -> Manage NuGet Packages for Solution..
 ```bash
    Microsoft.EntityFrameworkCore.SqlServer
