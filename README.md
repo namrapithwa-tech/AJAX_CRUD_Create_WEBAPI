@@ -83,6 +83,13 @@ The API provides the following endpoints:
 - SQL Server
 - Visual Studio or any preferred IDE
 
+### Some Extension need to be install from Tools -> NuGet Package Manager -> Manage NuGet Packages for Solution..
+- Microsoft.EntityFrameworkCore.SqlServer
+- Microsoft.EntityFrameworkCore.Tools
+- Swashbuckle.AspNetCore
+- Microsoft.Data.SqlClient
+- Microsoft.AspNetCore.Mvc.NewtonsoftJson
+
 ### Installation Steps
 1. Clone this repository:
    ```bash
